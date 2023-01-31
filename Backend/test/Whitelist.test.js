@@ -11,7 +11,7 @@ describe("WhiteList", function () {
     whitelistContract = await whitelist.deploy(10);
   });
 
-  describe("Whitelisiting functionality", function () {
+  describe("WhiteLisiting functionality", function () {
     it("it should whitelist address", async () => {
       const tx = await whitelistContract.connect(alice).addAddressToWhitelist();
       await tx.wait();
@@ -21,7 +21,7 @@ describe("WhiteList", function () {
       expect(addressWhitelisted).to.be.true;
     });
 
-    it("it should equal false if address is not whitelisted", async () => {
+    it("it should equal false if address is not whiteListed", async () => {
       const tx = await whitelistContract.connect(alice).addAddressToWhitelist();
       await tx.wait();
       const addressWhitelisted = await whitelistContract.whitelistedAddresses(
@@ -30,7 +30,7 @@ describe("WhiteList", function () {
       expect(addressWhitelisted).to.be.false;
     });
 
-    it("it should revert if address is already whitelisted", async () => {
+    it("it should revert if address is already whiteListed", async () => {
       expect(
         whitelistContract.connect(alice).addAddressToWhitelist()
       ).to.be.revertedWith("Sender has already been whitelisted");
